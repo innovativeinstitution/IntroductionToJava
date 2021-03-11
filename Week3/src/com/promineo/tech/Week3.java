@@ -108,6 +108,24 @@ public class Week3 {
         {
         	System.out.println(el);
         }
+        
+        boolean isPriceReduced = IsTicketPriceReduced(72);
+        System.out.println("Is Ticket Price Reduced?: " + isPriceReduced);
+        
+        isPriceReduced = IsTicketPriceReduced(25);
+        System.out.println("Is Ticket Price Reduced?: " + isPriceReduced);
+	}
+	
+	public static boolean IsTicketPriceReduced(int age)
+	{
+		if(age > 55)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public static int AddTwoNumbers(int num1, int num2)
