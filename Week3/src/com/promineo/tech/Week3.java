@@ -114,6 +114,14 @@ public class Week3 {
         
         isPriceReduced = IsTicketPriceReduced(25);
         System.out.println("Is Ticket Price Reduced?: " + isPriceReduced);
+        
+        int[] arrayBeforeSort = { 23, 5, 1, 7, 12, 72 };
+        Arrays.sort(arrayBeforeSort);
+        
+        for(int el : arrayBeforeSort)
+        {
+        	System.out.println(el);
+        }
 	}
 	
 	public static boolean IsTicketPriceReduced(int age)
