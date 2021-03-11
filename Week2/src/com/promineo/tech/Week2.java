@@ -1,5 +1,7 @@
 package com.promineo.tech;
 
+import java.util.ArrayList;
+
 public class Week2 {
 
 	public static void main(String[] args) {
@@ -207,6 +209,14 @@ public class Week2 {
 		//{
 		//	BuildCar(car);
 	    //}
+		
+		for(int i = 0; i <= 100; i++)
+		{
+			if(i % 3 == 0)
+			{
+				System.out.println("The number " + i + " is divisible by 3");
+			}
+		}
 	}
 
 	private static boolean CHeckGasTankEmpty() {
