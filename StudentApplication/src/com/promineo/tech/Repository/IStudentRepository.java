@@ -9,4 +9,5 @@ public interface IStudentRepository {
 	Student getStudent(int studentId);
 	void createStudent(Student student);
 	void deleteStudent(Student student);
+	void updateStudent(Student student);
 }

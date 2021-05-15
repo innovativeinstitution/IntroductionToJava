@@ -2,6 +2,7 @@ package com.promineo.tech.Service;
 
 import java.util.ArrayList;
 
+import com.promineo.tech.Models.Classroom;
 import com.promineo.tech.Models.Student;
 import com.promineo.tech.Repository.StudentRepository;
 
@@ -32,5 +33,10 @@ private StudentRepository studentRepository;
 	@Override
 	public void deleteStudent(Student student) {
 		studentRepository.deleteStudent(student);
+	}
+	
+	@Override
+	public void updateStudent(Student student) {
+		studentRepository.updateStudent(student);
 	}
 }

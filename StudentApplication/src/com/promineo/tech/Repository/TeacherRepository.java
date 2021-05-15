@@ -2,29 +2,27 @@ package com.promineo.tech.Repository;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.promineo.tech.Models.Classroom;
 import com.promineo.tech.Models.Student;
+import com.promineo.tech.Models.Teacher;
 
-public class StudentRepository extends MySqlRepository implements IStudentRepository {
+public class TeacherRepository extends MySqlRepository implements ITeacherRepository {
 	private Connection connection;
-	public StudentRepository()
+	public TeacherRepository()
 	{
 		connection = super.getConnection("university");
 	}
 	
 	@Override
-	public ArrayList<Student> getStudents() {
-		ArrayList<Student> students = new ArrayList<Student>();
+	public ArrayList<Teacher> getTeachers() {
+		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 
 		try
 		{
-			CallableStatement st = connection.prepareCall("{call getStudents()}");
+			CallableStatement st = connection.prepareCall("{call getTeachers()}");
 			boolean hasResult = st.execute();
 			if(hasResult)
 			{
@@ -32,24 +30,24 @@ public class StudentRepository extends MySqlRepository implements IStudentReposi
 
 				while(rs.next())
 				{
-					students.add(new Student(rs.getInt(1), rs.getString(2), rs.getString(3)));
+					teachers.add(new Teacher(rs.getInt(1), rs.getString(2), rs.getString(3)));
 				}
 			}
 		}
 		catch(SQLException ex)
 		{
 			System.out.println(ex.getMessage());
-			return students;
+			return teachers;
 		}
 		
-		return students;
+		return teachers;
 	}
 	@Override
-	public Student getStudent(int studentId) {
+	public Teacher getTeacher(int teacherId) {
 		try
 		{
 			CallableStatement st = connection.prepareCall("{call getStudentById(?)}");
-			st.setInt(1, studentId);
+			st.setInt(1, teacherId);
 			
 			boolean hasResult = st.execute();
 			if(hasResult)
@@ -58,7 +56,7 @@ public class StudentRepository extends MySqlRepository implements IStudentReposi
 
 				while(rs.next())
 				{
-					return new Student(rs.getInt(1), rs.getString(2), rs.getString(3));
+					return new Teacher(rs.getInt(1), rs.getString(2), rs.getString(3));
 				}
 			}
 		}
@@ -72,12 +70,12 @@ public class StudentRepository extends MySqlRepository implements IStudentReposi
 	}
 	
 	@Override
-	public void createStudent(Student student) {
+	public void createTeacher(Teacher teacher) {
 		try
 		{
-			CallableStatement st = connection.prepareCall("{call createStudent(?, ?)}");
-			st.setString(1, student.getFirstName());
-			st.setString(2, student.getLastName());
+			CallableStatement st = connection.prepareCall("{call createTeacher(?, ?)}");
+			st.setString(1, teacher.getFirstName());
+			st.setString(2, teacher.getLastName());
 			st.execute();
 		}
 		catch(SQLException ex)
@@ -87,11 +85,11 @@ public class StudentRepository extends MySqlRepository implements IStudentReposi
 	}
 	
 	@Override
-	public void deleteStudent(Student student) {
+	public void deleteTeacher(Teacher teacher) {
 		try
 		{
-			CallableStatement st = connection.prepareCall("{call deleteStudent(?)}");
-			st.setInt(1, student.getId());
+			CallableStatement st = connection.prepareCall("{call deleteTeacher(?)}");
+			st.setInt(1, teacher.getId());
 			st.execute();
 		}
 		catch(SQLException ex)
@@ -101,13 +99,13 @@ public class StudentRepository extends MySqlRepository implements IStudentReposi
 	}
 	
 	@Override
-	public void updateStudent(Student student) {
+	public void updateTeacher(Teacher teacher) {
 		try
 		{
-			CallableStatement st = connection.prepareCall("{call updateStudent(?, ?, ?)}");
-			st.setInt(1, student.getId());
-			st.setString(2, student.getFirstName());
-			st.setString(3, student.getLastName());
+			CallableStatement st = connection.prepareCall("{call updateTeacher(?, ?, ?)}");
+			st.setInt(1, teacher.getId());
+			st.setString(2, teacher.getFirstName());
+			st.setString(3, teacher.getLastName());
 			st.execute();
 		}
 		catch(SQLException ex)

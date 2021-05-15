@@ -1,11 +1,11 @@
 package com.promineo.tech.Models;
 
-public class Student {
+public class Teacher {
 	private int Id;
 	private String FirstName;
 	private String LastName;
 	
-	public Student(int id, String firstName, String lastName)
+	public Teacher(int id, String firstName, String lastName)
 	{
 		Id = id;
 		FirstName = firstName;
@@ -39,6 +39,6 @@ public class Student {
 			
 	public String toString()
 	{
-		return "StudentId: " + Id + ", FirstName: " + FirstName + ", LastName: " + LastName;
+		return "TeacherId: " + Id + ", FirstName: " + FirstName + ", LastName: " + LastName;
 	}
 }
