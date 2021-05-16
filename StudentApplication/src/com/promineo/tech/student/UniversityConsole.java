@@ -1,6 +1,9 @@
 package com.promineo.tech.student;
 
 import java.util.Scanner;
+
+import com.promineo.tech.Models.CrudChoice;
+import com.promineo.tech.Models.MainMenuChoice;
 import com.promineo.tech.Models.UniversityViewModel;
 import com.promineo.tech.Service.UniversityConsoleService;
 
@@ -21,12 +24,12 @@ public class UniversityConsole {
 				DisplayMainMenu();
 				if(scanner.hasNextInt())
 				{
-					viewModel.MainMenuChoice = scanner.nextInt();
+					viewModel.MainMenuChoice = MainMenuChoice.values()[scanner.nextInt() - 1];
 				}
 				DisplayCrudMenu();
 				if(scanner.hasNextInt())
 				{
-					viewModel.CrudChoice = scanner.nextInt();
+					viewModel.CrudChoice = CrudChoice.values()[scanner.nextInt() - 1];
 				}
 				DisplayDetailsScreen();
 				
@@ -34,7 +37,7 @@ public class UniversityConsole {
 				universityService.StartUniversityService();
 				
 			} 
-			while(viewModel.MainMenuChoice != 4);	
+			while(viewModel.MainMenuChoice != MainMenuChoice.EXIT);	
 			
 			scanner.close();
 		}
@@ -67,16 +70,16 @@ public class UniversityConsole {
 	{
 		switch (viewModel.MainMenuChoice) 
 		{
-			case 1:
+			case STUDENT:
 				switch (viewModel.CrudChoice)
 				{
-					case 1:
+					case CREATE:
 						System.out.println("Enter Student First Name: ");
 						viewModel.StudentFirstName = scanner.next();
 						System.out.println("Enter Student Last Name: ");
 						viewModel.StudentLastName = scanner.next();
 						break;
-					case 3:
+					case UPDATE:
 						System.out.println("Enter Student Id: ");
 						viewModel.StudentId = scanner.nextInt();
 						System.out.println("Enter Student First Name: ");
@@ -84,22 +87,22 @@ public class UniversityConsole {
 						System.out.println("Enter Student Last Name: ");
 						viewModel.StudentLastName = scanner.next();
 						break;
-					case 4:
+					case DELETE:
 						System.out.println("Enter Student Id: ");
 						viewModel.StudentId = scanner.nextInt();
 						break;
 				}
 				break;
-			case 2:
+			case TEACHER:
 				switch (viewModel.CrudChoice)
 				{
-					case 1:
+					case CREATE:
 						System.out.println("Enter Teacher First Name: ");
 						viewModel.TeacherFirstName = scanner.next();
 						System.out.println("Enter Teacher Last Name: ");
 						viewModel.TeacherLastName = scanner.next();
 						break;
-					case 3:
+					case UPDATE:
 						System.out.println("Enter Teacher Id: ");
 						viewModel.TeacherId = scanner.nextInt();
 						System.out.println("Enter Teacher First Name: ");
@@ -107,22 +110,22 @@ public class UniversityConsole {
 						System.out.println("Enter Teacher Last Name: ");
 						viewModel.TeacherLastName = scanner.next();
 						break;
-					case 4:
+					case DELETE:
 						System.out.println("Enter Teacher Id: ");
 						viewModel.TeacherId = scanner.nextInt();
 						break;
 				}
 				break;
-			case 3:
+			case CLASSROOM:
 				switch (viewModel.CrudChoice)
 				{
-					case 1:
+					case CREATE:
 						System.out.println("Enter Classroom Name: ");
 						viewModel.ClassroomName = scanner.next();
 						System.out.println("Enter Classroom Subject: ");
 						viewModel.ClassroomSubject = scanner.next();
 						break;
-					case 3:
+					case UPDATE:
 						System.out.println("Enter Classroom Id: ");
 						viewModel.ClassroomId = scanner.nextInt();
 						System.out.println("Enter Classroom Name: ");
@@ -130,7 +133,7 @@ public class UniversityConsole {
 						System.out.println("Enter Classroom Subject: ");
 						viewModel.ClassroomSubject = scanner.next();
 						break;
-					case 4:
+					case DELETE:
 						System.out.println("Enter Classroom Id: ");
 						viewModel.ClassroomId = scanner.nextInt();
 						break;

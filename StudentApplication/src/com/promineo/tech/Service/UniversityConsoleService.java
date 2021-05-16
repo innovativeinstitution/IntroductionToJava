@@ -29,14 +29,14 @@ public class UniversityConsoleService {
 		
 		switch (viewModel.MainMenuChoice)
 		{
-			case 1:
+			case STUDENT:
 				switch (viewModel.CrudChoice) 
 				{
-					case 1:
+					case CREATE:
 						studentService.createStudent(new Student(0, viewModel.StudentFirstName, viewModel.StudentLastName));
 						System.out.println("Student created!...");
 						break;
-					case 2:
+					case READ:
 						System.out.println("All students...");
 						ArrayList<Student> students = studentService.getStudents();
 						for (Student s : students)
@@ -44,7 +44,7 @@ public class UniversityConsoleService {
 							System.out.println(s);
 						}
 						break;
-					case 3:
+					case UPDATE:
 						student = studentService.getStudent(viewModel.StudentId);
 						if(student != null)
 						{
@@ -58,7 +58,7 @@ public class UniversityConsoleService {
 							System.out.println("Student does not exist...");
 						}
 						break;
-					case 4:
+					case DELETE:
 						student = studentService.getStudent(viewModel.StudentId);
 						if(student != null)
 						{
@@ -75,14 +75,14 @@ public class UniversityConsoleService {
 						break;
 				}
 				break;
-			case 2:
+			case TEACHER:
 				switch (viewModel.CrudChoice) 
 				{
-					case 1:
+					case CREATE:
 						teacherService.createTeacher(new Teacher(0, viewModel.TeacherFirstName, viewModel.TeacherLastName));
 						System.out.println("Teacher created!...");
 						break;
-					case 2:
+					case READ:
 						System.out.println("All teachers...");
 						ArrayList<Teacher> teachers = teacherService.getTeachers();
 						for (Teacher t : teachers)
@@ -90,7 +90,7 @@ public class UniversityConsoleService {
 							System.out.println(t);
 						}
 						break;
-					case 3:
+					case UPDATE:
 						teacher = teacherService.getTeacher(viewModel.TeacherId);
 						if(teacher != null)
 						{
@@ -104,7 +104,7 @@ public class UniversityConsoleService {
 							System.out.println("Teacher does not exist...");
 						}
 						break;
-					case 4:
+					case DELETE:
 						teacher = teacherService.getTeacher(viewModel.TeacherId);
 						if(teacher != null)
 						{
@@ -121,14 +121,14 @@ public class UniversityConsoleService {
 						break;
 				}
 				break;
-			case 3:
+			case CLASSROOM:
 				switch (viewModel.CrudChoice) 
 				{
-					case 1:
+					case CREATE:
 						classroomService.createClassroom(new Classroom(0, viewModel.ClassroomName, viewModel.ClassroomSubject));
 						System.out.println("Classroom created!...");
 						break;
-					case 2:
+					case READ:
 						System.out.println("All classrooms...");
 						ArrayList<Classroom> classrooms = classroomService.getClassrooms();
 						for (Classroom c : classrooms)
@@ -136,7 +136,7 @@ public class UniversityConsoleService {
 							System.out.println(c);
 						}
 						break;
-					case 3:
+					case UPDATE:
 						classroom = classroomService.getClassroom(viewModel.ClassroomId);
 						if(classroom != null)
 						{
@@ -150,7 +150,7 @@ public class UniversityConsoleService {
 							System.out.println("Classroom does not exist...");
 						}
 						break;
-					case 4:
+					case DELETE:
 						classroom = classroomService.getClassroom(viewModel.ClassroomId);
 						if(classroom != null)
 						{

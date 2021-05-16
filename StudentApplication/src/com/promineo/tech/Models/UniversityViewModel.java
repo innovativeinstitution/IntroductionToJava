@@ -1,8 +1,8 @@
 package com.promineo.tech.Models;
 
 public class UniversityViewModel {
-	public int MainMenuChoice;
-	public int CrudChoice;
+	public MainMenuChoice MainMenuChoice;
+	public CrudChoice CrudChoice;
 	public String StudentFirstName;
 	public String StudentLastName;
 	public int StudentId;
