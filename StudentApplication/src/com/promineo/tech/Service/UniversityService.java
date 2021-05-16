@@ -7,13 +7,13 @@ import com.promineo.tech.Models.Student;
 import com.promineo.tech.Models.Teacher;
 import com.promineo.tech.Models.UniversityViewModel;
 
-public class UniversityConsoleService {
+public class UniversityService {
 	private UniversityViewModel viewModel;
 	private StudentService studentService;
 	private TeacherService teacherService;
 	private ClassroomService classroomService;
 	
-	public UniversityConsoleService(UniversityViewModel model)
+	public UniversityService(UniversityViewModel model)
 	{
 		viewModel = model;
 		studentService = new StudentService();

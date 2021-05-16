@@ -5,11 +5,12 @@ import java.util.Scanner;
 import com.promineo.tech.Models.CrudChoice;
 import com.promineo.tech.Models.MainMenuChoice;
 import com.promineo.tech.Models.UniversityViewModel;
-import com.promineo.tech.Service.UniversityConsoleService;
+import com.promineo.tech.Service.UniversityService;
 
 public class UniversityConsole {
 	private static UniversityViewModel viewModel;
 	private static Scanner scanner;
+	
 	public static void main(String[] args) {
 
 		System.out.println("Welcome to the University!!!");
@@ -22,23 +23,18 @@ public class UniversityConsole {
 			{
 				viewModel = new UniversityViewModel();
 				DisplayMainMenu();
-				if(scanner.hasNextInt())
-				{
-					viewModel.MainMenuChoice = MainMenuChoice.values()[scanner.nextInt() - 1];
-				}
 				DisplayCrudMenu();
-				if(scanner.hasNextInt())
-				{
-					viewModel.CrudChoice = CrudChoice.values()[scanner.nextInt() - 1];
-				}
 				DisplayDetailsScreen();
 				
-				UniversityConsoleService universityService = new UniversityConsoleService(viewModel);
-				universityService.StartUniversityService();
-				
+				if(viewModel.MainMenuChoice != MainMenuChoice.EXIT)
+				{
+					UniversityService universityService = new UniversityService(viewModel);
+					universityService.StartUniversityService();
+				}
 			} 
 			while(viewModel.MainMenuChoice != MainMenuChoice.EXIT);	
 			
+			System.out.println("Goodbye!!!");
 			scanner.close();
 		}
 		catch(Exception ex)
@@ -55,6 +51,11 @@ public class UniversityConsole {
 		System.out.println("2. Teachers");
 		System.out.println("3. Classrooms");
 		System.out.println("4. Exit");
+		
+		if(scanner.hasNextInt())
+		{
+			viewModel.MainMenuChoice = MainMenuChoice.values()[scanner.nextInt() - 1];
+		}
 	}
 	
 	private static void DisplayCrudMenu()
@@ -64,6 +65,11 @@ public class UniversityConsole {
 		System.out.println("2. Read");
 		System.out.println("3. Update");
 		System.out.println("4. Delete");
+		
+		if(scanner.hasNextInt())
+		{
+			viewModel.CrudChoice = CrudChoice.values()[scanner.nextInt() - 1];
+		}
 	}
 	
 	private static void DisplayDetailsScreen()
@@ -78,6 +84,8 @@ public class UniversityConsole {
 						viewModel.StudentFirstName = scanner.next();
 						System.out.println("Enter Student Last Name: ");
 						viewModel.StudentLastName = scanner.next();
+						break;
+					case READ:
 						break;
 					case UPDATE:
 						System.out.println("Enter Student Id: ");
@@ -102,6 +110,8 @@ public class UniversityConsole {
 						System.out.println("Enter Teacher Last Name: ");
 						viewModel.TeacherLastName = scanner.next();
 						break;
+					case READ:
+						break;
 					case UPDATE:
 						System.out.println("Enter Teacher Id: ");
 						viewModel.TeacherId = scanner.nextInt();
@@ -124,6 +134,8 @@ public class UniversityConsole {
 						viewModel.ClassroomName = scanner.next();
 						System.out.println("Enter Classroom Subject: ");
 						viewModel.ClassroomSubject = scanner.next();
+						break;
+					case READ:
 						break;
 					case UPDATE:
 						System.out.println("Enter Classroom Id: ");
