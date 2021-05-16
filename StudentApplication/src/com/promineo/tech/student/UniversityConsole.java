@@ -14,16 +14,29 @@ public class UniversityConsole {
 		try
 		{
 			scanner = new Scanner(System.in);
-			viewModel = new UniversityViewModel();
-			DisplayMainMenu();
-			viewModel.MainMenuChoice = scanner.nextInt();
-			DisplayCrudMenu();
-			viewModel.CrudChoice = scanner.nextInt();
-			DisplayDetailsScreen();
-			scanner.close();
 			
-			UniversityConsoleService universityService = new UniversityConsoleService(viewModel);
-			universityService.StartUniversityService();
+			do
+			{
+				viewModel = new UniversityViewModel();
+				DisplayMainMenu();
+				if(scanner.hasNextInt())
+				{
+					viewModel.MainMenuChoice = scanner.nextInt();
+				}
+				DisplayCrudMenu();
+				if(scanner.hasNextInt())
+				{
+					viewModel.CrudChoice = scanner.nextInt();
+				}
+				DisplayDetailsScreen();
+				
+				UniversityConsoleService universityService = new UniversityConsoleService(viewModel);
+				universityService.StartUniversityService();
+				
+			} 
+			while(viewModel.MainMenuChoice != 4);	
+			
+			scanner.close();
 		}
 		catch(Exception ex)
 		{
@@ -38,6 +51,7 @@ public class UniversityConsole {
 		System.out.println("1. Students");
 		System.out.println("2. Teachers");
 		System.out.println("3. Classrooms");
+		System.out.println("4. Exit");
 	}
 	
 	private static void DisplayCrudMenu()
