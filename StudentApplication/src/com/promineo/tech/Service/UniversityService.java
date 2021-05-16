@@ -7,7 +7,7 @@ import com.promineo.tech.Models.Student;
 import com.promineo.tech.Models.Teacher;
 import com.promineo.tech.Models.UniversityViewModel;
 
-public class UniversityService {
+public class UniversityService implements IUniversityService {
 	private UniversityViewModel viewModel;
 	private StudentService studentService;
 	private TeacherService teacherService;
@@ -21,6 +21,7 @@ public class UniversityService {
 		classroomService = new ClassroomService();
 	}
 	
+	@Override
 	public void StartUniversityService()
 	{
 		Student student;
