@@ -2,10 +2,10 @@ package com.promineo.tech.student;
 
 import java.util.Scanner;
 
+import com.promineo.tech.Controllers.UniversityController;
 import com.promineo.tech.Models.CrudChoice;
 import com.promineo.tech.Models.MainMenuChoice;
 import com.promineo.tech.Models.UniversityViewModel;
-import com.promineo.tech.Service.UniversityService;
 
 public class UniversityConsole {
 	private static UniversityViewModel viewModel;
@@ -28,8 +28,8 @@ public class UniversityConsole {
 				
 				if(viewModel.MainMenuChoice != MainMenuChoice.EXIT)
 				{
-					UniversityService universityService = new UniversityService(viewModel);
-					universityService.StartUniversityService();
+					UniversityController universityController = new UniversityController(viewModel);
+					universityController.StartUniversityService();
 				}
 			} 
 			while(viewModel.MainMenuChoice != MainMenuChoice.EXIT);	

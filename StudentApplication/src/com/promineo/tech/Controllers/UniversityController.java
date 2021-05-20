@@ -1,4 +1,4 @@
-package com.promineo.tech.Service;
+package com.promineo.tech.Controllers;
 
 import java.util.ArrayList;
 
@@ -6,14 +6,17 @@ import com.promineo.tech.Models.Classroom;
 import com.promineo.tech.Models.Student;
 import com.promineo.tech.Models.Teacher;
 import com.promineo.tech.Models.UniversityViewModel;
+import com.promineo.tech.Service.ClassroomService;
+import com.promineo.tech.Service.StudentService;
+import com.promineo.tech.Service.TeacherService;
 
-public class UniversityService implements IUniversityService {
+public class UniversityController implements IUniversityController {
 	private UniversityViewModel viewModel;
 	private StudentService studentService;
 	private TeacherService teacherService;
 	private ClassroomService classroomService;
 	
-	public UniversityService(UniversityViewModel model)
+	public UniversityController(UniversityViewModel model)
 	{
 		viewModel = model;
 		studentService = new StudentService();
