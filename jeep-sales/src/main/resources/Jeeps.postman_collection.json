@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "5ac720cc-c161-412c-a7b8-9db1b412b5f1",
+		"name": "Jeeps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jeeps?model=WRANGLER&trim=Sport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jeeps"
+					],
+					"query": [
+						{
+							"key": "model",
+							"value": "WRANGLER"
+						},
+						{
+							"key": "trim",
+							"value": "Sport"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
