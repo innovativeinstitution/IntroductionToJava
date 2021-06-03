@@ -1,0 +1,186 @@
+Web API (Spring Boot): Week 1 
+
+SAAS: Software As A Service
+IAAS: Infrastructure As A Service
+BIAAS: Business Intelligence As A Service
+
+Clean Architecture
+
+MVC: Model-View-Controller
+MVVM:
+
+Clean/Onion Architecture
+
+Presentation Layer:
+Console app (basic)
+Web Site
+Desktop App
+
+Controller:
+Handles the Routing
+Dependency Injects (Injects Services or Service Interfaces)
+Web API Controller
+
+Service:
+Service Interfaces
+Service Implementations
+Student Service >>> Email Service
+
+Repository:
+Student Repository
+Responsible for CRUD or talking to the Database (Data Layer)
+
+Models/Shared:
+Core Entities
+View Models
+Cross-Cutting
+
+Postman: 
+help test rest api's
+unit tests
+integration tests
+java junit test
+jupiter test framework
+
+
+API's (Web Services):
+Application Programming Interface
+
+SOAP Web Services: Simple Object Access Protocol
+Data is transferred using XML Standards 
+<Configuration>
+<
+</Configuration>
+
+REST Services
+
+HTTP: HyperText Transfer Protocol
+
+Sending a resource over the wire (network, over HTTP)
+HTTP Status Code = 200
+HTTP Status Code = 404 (Not Found) 500 (Interval Server Error), 401 (Unauthorized)
+
+Resource - requesting a resource (data, html, css, file, etc)
+
+David - user
+Browser - client
+Resource -
+Authorized - on that resource
+Authenticated - before requesting the resource
+
+API over http 
+
+request
+response - response codes 
+
+Request Method (HTTP): HTTP Verbs 
+GET - getting data fetching data (READ)
+PUT - update data (UPDATE)
+POST - creating data (CREATE)
+DELETE - deleting data (DELETE)
+PATCH
+
+request headers
+-security information
+-timeout information
+response headers
+
+https: secure http
+
+secure your web api
+
+Secure your api
+token based security
+username and password
+Basic Authentication (
+
+REST Api using Spring Boot
+
+REST API or REST Service
+- Host windows (IIS) Internet Information Services
+
+Java World - LAMP - Linux Apache MySQL PHP LAMP Stack
+
+Apache Tomcat - Server
+-server resources 
+Windows - IIS
+AWS - Amazon
+Azure - Microsoft
+
+
+
+Entry Point - Controller (Routing, Inject Services, Logging)
+
+Controller
+ 
+StudentController:
+
+Actions (Route, HTTP Method (GET, PUT, POST, DELETE))
+
+Collection
+GetStudents GET
+UpdateStudents PUT
+DeleteStudents DELETE
+CreateStudent POST
+
+Host: https://localhost:44344/
+
+1. Routing - Controller
+
+/student GET ArrayList<Student> 
+/student?firstName=Manish&lastName=Narayan POST
+/student
+/student/
+
+
+https://us02web.zoom.us/postattendee?id=42
+
+Query String Parameters (URI Universal Resources Identifier)
+- sent or attached to the URL
+
+
+
+document our api - SWAGGER documentation 
+
+david hands Manish his api documentation
+
+manish looks at routes and data
+
+create REST Api
+
+text
+xml
+JSON
+
+JSON data format - javascript object notation
+
+String jsonData = 
+	{
+		"date": "2021-05-20T19:14:24.8349906-07:00",
+		"temperatureC": 12,
+		"temperatureF": 53,
+		"summary": "Bracing"
+	}
+	
+    {
+		"studentid": "1",
+		"firstname": "Manish",
+		"lastname": "Narayan",
+	},
+	{
+		"studentid": "2",
+		"firstname": "Manish",
+		"lastname": "Narayan",
+	}
+	
+	key-value pairs
+	
+	hashset<int, string> key value pairs
+
+
+
+weather object = weatherdata.deserialize(json
+
+
+Manish consume IOT api
+? smartthings api

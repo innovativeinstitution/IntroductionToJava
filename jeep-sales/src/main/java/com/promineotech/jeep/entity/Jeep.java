@@ -18,4 +18,14 @@ public class Jeep {
   private int numDoors;
   private int wheelSize;
   private BigDecimal basePrice;
+  
+  public Jeep(Long pkId, int model, String trim, int doors, int wSize, BigDecimal bPrice)
+  {
+	  this.modelPK = pkId;
+	  this.modelId = JeepModel.values()[model - 1];
+	  this.trimLevel = trim;
+	  this.numDoors = doors;
+	  this.wheelSize = wSize;
+	  this.basePrice = bPrice;
+  }
 }
