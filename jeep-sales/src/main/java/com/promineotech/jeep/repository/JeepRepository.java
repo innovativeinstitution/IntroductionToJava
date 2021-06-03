@@ -71,25 +71,7 @@ public class JeepRepository extends MySqlRepository implements IJeepRepository {
 			            }
 			        });
 			
-			response.jeeps = jeeps;
-			
-			/*CallableStatement st = connection.prepareCall("{call getJeepsByModelAndTrim(?, ?)}");
-			st.setString(1, request.model.toString());
-			st.setString(2, request.trim);
-			
-			boolean hasResult = st.execute();
-			if(hasResult)
-			{
-				ResultSet rs = st.getResultSet();
-
-				response.jeeps = new ArrayList<Jeep>();
-				while(rs.next())
-				{
-					Jeep jeep = new Jeep(rs.getLong(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getBigDecimal(6));
-					response.jeeps.add(jeep);
-				}
-			}*/
-			
+			response.jeeps = jeeps;	
 			return response;
 		}
 		catch(Exception ex)

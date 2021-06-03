@@ -2,11 +2,15 @@ package com.promineotech.jeep.entity;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @Data
 @Builder
 @NoArgsConstructor
