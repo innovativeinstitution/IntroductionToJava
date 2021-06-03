@@ -19,13 +19,33 @@ public class Jeep {
   private int wheelSize;
   private BigDecimal basePrice;
   
-  public Jeep(Long pkId, int model, String trim, int doors, int wSize, BigDecimal bPrice)
+  public void setModelPk(Long modelPk)
   {
-	  this.modelPK = pkId;
-	  this.modelId = JeepModel.values()[model - 1];
-	  this.trimLevel = trim;
-	  this.numDoors = doors;
-	  this.wheelSize = wSize;
-	  this.basePrice = bPrice;
+	  modelPK = modelPk;
+  }
+  
+  public void setJeepModel(String model)
+  {
+	  modelId = JeepModel.valueOf(model);
+  }
+  
+  public void setTrimLevel(String trim)
+  {
+	  trimLevel = trim;
+  }
+  
+  public void setNumDoors(int doors)
+  {
+	  numDoors = doors;
+  }
+  
+  public void setWheelSize(int wSize)
+  {
+	  wheelSize = wSize;
+  }
+  
+  public void setBasePrice(BigDecimal bPrice)
+  {
+	  basePrice = bPrice;
   }
 }
