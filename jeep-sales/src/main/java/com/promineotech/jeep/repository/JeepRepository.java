@@ -23,29 +23,15 @@ import com.promineotech.jeep.entity.Jeep;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-//@Slf4j
+@Slf4j
 public class JeepRepository extends MySqlRepository implements IJeepRepository {
-	private Connection connection;
-	//private Logger logger;
-	
-	//@Autowired
+
+	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
-	
-	public JeepRepository()
-	{
-		//connection = super.getConnection("jeep");
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/jeep");
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		
-		jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);		 
-	}
 	
 	@Override
 	public FetchJeepsResponse fetchJeeps(FetchJeepsRequest request) {
-		//logger.info("Fetching jeeps...");
+		//log.info("fetching jeeps...");
 		FetchJeepsResponse response = new FetchJeepsResponse();
 		
 		try
@@ -76,8 +62,7 @@ public class JeepRepository extends MySqlRepository implements IJeepRepository {
 		}
 		catch(Exception ex)
 		{
-			//logger.error(ex.getMessage());
-			//System.out.println(ex.getMessage());
+			//log.error(ex.getMessage());
 			return response;
 		}
 	}
