@@ -5,14 +5,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.promineotech.jeep.entity.FetchJeepsRequest;
 import com.promineotech.jeep.entity.FetchJeepsResponse;
 import com.promineotech.jeep.entity.Jeep;
-import com.promineotech.jeep.entity.JeepModel;
 
 @Service
 public class JeepRepository extends MySqlRepository implements IJeepRepository {
