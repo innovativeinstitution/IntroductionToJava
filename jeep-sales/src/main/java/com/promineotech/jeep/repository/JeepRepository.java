@@ -1,19 +1,14 @@
 package com.promineotech.jeep.repository;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Service;
 
 import com.promineotech.jeep.entity.FetchJeepsRequest;
@@ -24,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class JeepRepository extends MySqlRepository implements IJeepRepository {
+public class JeepRepository implements IJeepRepository {
 
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
