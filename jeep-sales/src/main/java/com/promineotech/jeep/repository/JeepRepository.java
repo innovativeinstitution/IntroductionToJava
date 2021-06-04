@@ -20,13 +20,12 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class JeepRepository implements IJeepRepository {
-
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
 	
 	@Override
 	public FetchJeepsResponse fetchJeeps(FetchJeepsRequest request) {
-		//log.info("fetching jeeps...");
+		log.info("fetching jeeps...");
 		FetchJeepsResponse response = new FetchJeepsResponse();
 		
 		try
@@ -57,7 +56,7 @@ public class JeepRepository implements IJeepRepository {
 		}
 		catch(Exception ex)
 		{
-			//log.error(ex.getMessage());
+			log.error(ex.getMessage());
 			return response;
 		}
 	}
